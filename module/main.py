@@ -8,18 +8,20 @@ import time
 import requests
 
 # Техники
-Gorev_A = '-1002203331106' #KTO (kto_tech_1)
-Buldakob_S = '-1002174436582' #KTO (kto_tech_2)
-Kuznecov_A = '-1002149688633' #KTO (kto_tech_3)
-Malich_O = '-1002228403383' #KTO (kto_tech_4)
-Abashev_A = '-1002167206495' #KTO (kto_tech_5)
-Belich_A = '-1002248392247' #KTO (kto_tech_6)
-Technic_K = '-1002210202214' #KTO (kto_tech_7)
+# Gorev_A = '-1002203331106' #KTO (kto_tech_1)
+# Buldakob_S = '-1002174436582' #KTO (kto_tech_2)
+# Kuznecov_A = '-1002149688633' #KTO (kto_tech_3)
+# Malich_O = '-1002228403383' #KTO (kto_tech_4)
+# Abashev_A = '-1002167206495' #KTO (kto_tech_5)
+# Belich_A = '-1002248392247' #KTO (kto_tech_6)
+# Technic_K = '-1002210202214' #KTO (kto_tech_7)
+#
+# Zavyalov_N = '-1002135018502' #FULL (full_tech_1)
+# Malekin_A = '-1002148412472' #FULL (full_tech_2)
+# Kudravcev_A = '-1002170795117' #FULL (full_tech_3)
+# Technic_F = '-1002163832980' #FULL (full_tech_4)
 
-Zavyalov_N = '-1002135018502' #FULL (full_tech_1)
-Malekin_A = '-1002148412472' #FULL (full_tech_2)
-Kudravcev_A = '-1002170795117' #FULL (full_tech_3)
-Technic_F = '-1002163832980' #FULL (full_tech_4)
+Test = '-1002202663906'
 
 def take_mess(mess, id):
     time.sleep(5)
@@ -102,19 +104,19 @@ while True:
                                 abonent_kto = i.strip()
                                 new_kto = new_shop[2].strip().replace(',', "")
                                 if new_kto == abonent_kto and num_call == 1:
-                                    take_mess(task, Gorev_A)
+                                    take_mess(task, Test)
                                 elif new_kto == abonent_kto and num_call == 2:
-                                    take_mess(task, Buldakob_S)
+                                    take_mess(task, Test)
                                 elif new_kto == abonent_kto and num_call == 3:
-                                    take_mess(task, Kuznecov_A)
+                                    take_mess(task, Test)
                                 elif new_kto == abonent_kto and num_call == 4:
-                                    take_mess(task, Malich_O)
+                                    take_mess(task, Test)
                                 elif new_kto == abonent_kto and num_call == 5:
-                                    take_mess(task, Abashev_A)
+                                    take_mess(task, Test)
                                 elif new_kto == abonent_kto and num_call == 6:
-                                    take_mess(task, Belich_A)
+                                    take_mess(task, Test)
                                 elif new_kto == abonent_kto and num_call == 7:
-                                    take_mess(task, Technic_K)
+                                    take_mess(task, Test)
                                 else:
                                     continue
 
@@ -139,13 +141,13 @@ while True:
                                 abonent_full = i.strip()
                                 new_full = new_shop[2].strip().replace(',', "")
                                 if new_full == abonent_full and num_call == 1:
-                                    take_mess(task, Zavyalov_N)
+                                    take_mess(task, Test)
                                 elif new_full == abonent_full and num_call == 2:
-                                    take_mess(task, Malekin_A)
+                                    take_mess(task, Test)
                                 elif new_full == abonent_full and num_call == 3:
-                                    take_mess(task, Kudravcev_A)
+                                    take_mess(task, Test)
                                 elif new_full == abonent_full and num_call == 4:
-                                    take_mess(task, Technic_F)
+                                    take_mess(task, Test)
                                 else:
                                     continue
 
@@ -169,13 +171,13 @@ while True:
                         abonent_full = i.strip()
                         new_full = new_inc[2].strip().replace(',', "")
                         if new_full == abonent_full and num_call == 1:
-                            take_mess(inced, Zavyalov_N)
+                            take_mess(inced, Test)
                         elif new_full == abonent_full and num_call == 2:
-                            take_mess(inced, Malekin_A)
+                            take_mess(inced, Test)
                         elif new_full == abonent_full and num_call == 3:
-                            take_mess(inced, Kudravcev_A)
+                            take_mess(inced, Test)
                         elif new_full == abonent_full and num_call == 4:
-                            take_mess(inced, Technic_F)
+                            take_mess(inced, Test)
                         else:
                             continue
             else:
