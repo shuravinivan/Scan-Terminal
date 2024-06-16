@@ -1,0 +1,44 @@
+import imaplib
+import email
+import base64
+
+
+# Работвет с почтой mail.ru
+# Получает только не прочитаные письма
+# Пароль "09X7BYAayMx9vH7Lqu2t"
+# Логин "help_alexstroy@mail.ru"
+
+#Получает почту
+def mail_pars (username, mail_pass, number_letters):
+    # Вход на сервер почты
+    imap_server = "imap.mail.ru"
+    imap = imaplib.IMAP4_SSL(imap_server)
+    imap.login(username, mail_pass)
+
+    # Переход во входящие
+    imap.select("INBOX")
+
+    # Получает порядковые номера непрочитаных писем и записывает в переменную
+    list_unread = imap.search(None, "UNSEEN")
+    list_unread = list_unread[-1][0]
+    list_unread = list_unread.split()
+    numder_letters = len(list_unread)
+
+    # Условия для проверки непрочитаных писем
+    if numder_letters != 0:
+
+        # Получает и обрабатывает почту
+        for letter_num in list_unread:
+
+            # Получает письмо по порядковому номеру и извлекает содержимое
+            res, msg = imap.fetch(letter_num, '(RFC822)')  # Получение письма по порядковому номеру
+            msg = email.message_from_bytes(msg[0][1])  # Извлекает содержимое письма
+
+            # Извлекает текст письма из содержимого и записывает в переменную
+            for part in msg.walk():
+                if part.get_content_maintype() == 'text' and part.get_content_subtype() == 'plain':
+                    letter = base64.b64decode(part.get_payload()).decode(encoding='utf-8', errors='ignore')
+                    # letter = letter_iso.encode('ISO-8859-1').decode('cp1251', errors='ignore')
+
+
+    return letter, number_letters
