@@ -1,10 +1,10 @@
 #task - Ввод сообщения (Задача, Инцидент)
-#dir - Направление (КТО или ФУЛЛ)
+#direct - Направление (КТО или ФУЛЛ)
 
-def sort_shop(task, dir):
+def sort_shop(task, direct):
 
     # Фильтрует задачу по классу инцидента КТО
-    direction = 'documents/' + 'filter_' + dir + '.txt'
+    direction = 'documents/' + 'filter_' + direct + '.txt'
     filter = open(direction, 'r', encoding='utf-8')
     sort = filter.read().splitlines()
     filter.close()
@@ -14,4 +14,4 @@ def sort_shop(task, dir):
         if task_inc.strip() == line.strip():
             klass_inc = True
 
-    return klass_inc
+            return klass_inc

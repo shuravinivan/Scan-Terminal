@@ -3,17 +3,17 @@ import send_mess
 #task - Ввод сообщения (Задача, Инцидент)
 #num - Ввод строки для сравнения (Строка с содержанием номерв магазина)
 #col - Количество абонентов (Количество техников направления, до 10 чел.)
-#dir - Направление (КТО или ФУЛЛ)
+#direct - Направление (КТО или ФУЛЛ)
 #id_* - Номер чата техника
 
 
 
 # Сортирует задачу по технику КТО
-def Sort_tech(task, num, col, dir, id_1, id_2, id_3, id_4, id_5, id_6, id_7, id_8, id_9, id_10):
+def Sort_tech(task, num, col, direct, id_1, id_2, id_3, id_4, id_5, id_6, id_7, id_8, id_9, id_10):
 
     for i in range(col):
         num_tech = i + 1
-        direction = 'documents/' + dir + '_tech_' + str(num_tech) + '.txt'
+        direction = 'documents/' + direct + '_tech_' + str(num_tech) + '.txt'
         filter = open(direction, 'r', encoding='utf-8')
         sort = filter.read().splitlines()
         filter.close()
