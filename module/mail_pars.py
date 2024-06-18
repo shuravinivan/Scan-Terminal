@@ -40,5 +40,8 @@ def mail (mail_name, mail_pass):
                     letter = base64.b64decode(part.get_payload()).decode(encoding='utf-8', errors='ignore')
                     # letter = letter_iso.encode('ISO-8859-1').decode('cp1251', errors='ignore')
 
-                    return letter, num_letter
+                    return letter
 
+    # Выход с почтового сервера
+    imap.close()
+    imap.logout()
