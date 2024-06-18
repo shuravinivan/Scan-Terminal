@@ -1,13 +1,11 @@
-import imaplib
-import email
 from email.header import decode_header
-import base64
 from bs4 import BeautifulSoup
 import re
 import time
 import requests
 
 import mail_pars
+import sort_direct
 
 # Техники
 # Gorev_A = '-1002203331106' #KTO (kto_tech_1)
@@ -48,7 +46,7 @@ while True:
     num_letters = mail_pars.mail(mail_name, mail_pass)
     letter = mail_pars.mail(mail_name, mail_pass)
 
-    if num_letters != None:
+    if num_letters != 0 and letter != None:
 
         lines = letter[0].split('\n')
         new_task = lines[0]
@@ -63,72 +61,60 @@ while True:
             task = [lines[0], lines[1], lines[2], lines[3], lines[5], lines[6]]
 
             # Фильтрует задачу по классу инцидента КТО
-            filter_kto = open("../documents/filter_kto.txt", 'r', encoding='utf-8')
-            fKTO = filter_kto.read().splitlines()
-            filter_kto.close()
-            for el_str in fKTO:
-                klass_inc = task[4]
-                line = el_str
-                if klass_inc.strip() == line.strip():
+            if sort_shop.sort(task, 'kto') == True:
 
-                    # Фильтрует задачу по технику КТО
-                    for i in range(7):
-                        num_k = i + 1
-                        num_tech = '../documents/kto_tech_' + str(num_k) + '.txt'
-                        kto_tech = open(num_tech, 'r', encoding='utf-8')
-                        kTech = kto_tech.read().splitlines()
-                        kto_tech.close()
-                        for i in kTech:
-                            num_call = num_k
-                            abonent_kto = i.strip()
-                            new_kto = new_shop[2].strip().replace(',', "")
-                            if new_kto == abonent_kto and num_call == 1:
-                                take_mess(task, Test)
-                            elif new_kto == abonent_kto and num_call == 2:
-                                take_mess(task, Test)
-                            elif new_kto == abonent_kto and num_call == 3:
-                                take_mess(task, Test)
-                            elif new_kto == abonent_kto and num_call == 4:
-                                take_mess(task, Test)
-                            elif new_kto == abonent_kto and num_call == 5:
-                                take_mess(task, Test)
-                            elif new_kto == abonent_kto and num_call == 6:
-                                take_mess(task, Test)
-                            elif new_kto == abonent_kto and num_call == 7:
-                                take_mess(task, Test)
-                            else:
-                                continue
+                # Фильтрует задачу по технику КТО
+                for i in range(7):
+                    num_k = i + 1
+                    num_tech = '../documents/kto_tech_' + str(num_k) + '.txt'
+                    kto_tech = open(num_tech, 'r', encoding='utf-8')
+                    kTech = kto_tech.read().splitlines()
+                    kto_tech.close()
+                    for i in kTech:
+                        num_call = num_k
+                        abonent_kto = i.strip()
+                        new_kto = new_shop[2].strip().replace(',', "")
+                        if new_kto == abonent_kto and num_call == 1:
+                            take_mess(task, Test)
+                        elif new_kto == abonent_kto and num_call == 2:
+                            take_mess(task, Test)
+                        elif new_kto == abonent_kto and num_call == 3:
+                            take_mess(task, Test)
+                        elif new_kto == abonent_kto and num_call == 4:
+                            take_mess(task, Test)
+                        elif new_kto == abonent_kto and num_call == 5:
+                            take_mess(task, Test)
+                        elif new_kto == abonent_kto and num_call == 6:
+                            take_mess(task, Test)
+                        elif new_kto == abonent_kto and num_call == 7:
+                            take_mess(task, Test)
+                        else:
+                            continue
 
             # Фильтрует задачу по классу инцидента ФУЛЛ
-            filter_full = open('../documents/filter_full.txt', 'r', encoding='utf-8')
-            fFULL = filter_full.read().splitlines()
-            filter_full.close()
-            for el_str in fFULL:
-                klass_inc = task[4]
-                line = el_str
-                if klass_inc.strip() == line.strip():
+            if sort_shop.sort(task, 'full') == True:
 
-                    # Фильтрует задачу по технику ФУЛЛ
-                    for i in range(4):
-                        num_f = i + 1
-                        num_tech = '../documents/full_tech_' + str(num_f) + '.txt'
-                        full_tech = open(num_tech, 'r', encoding='utf-8')
-                        fTech = full_tech.read().splitlines()
-                        full_tech.close()
-                        for i in fTech:
-                            num_call = num_f
-                            abonent_full = i.strip()
-                            new_full = new_shop[2].strip().replace(',', "")
-                            if new_full == abonent_full and num_call == 1:
-                                take_mess(task, Test)
-                            elif new_full == abonent_full and num_call == 2:
-                                take_mess(task, Test)
-                            elif new_full == abonent_full and num_call == 3:
-                                take_mess(task, Test)
-                            elif new_full == abonent_full and num_call == 4:
-                                take_mess(task, Test)
-                            else:
-                                continue
+                # Фильтрует задачу по технику ФУЛЛ
+                for i in range(4):
+                    num_f = i + 1
+                    num_tech = '../documents/full_tech_' + str(num_f) + '.txt'
+                    full_tech = open(num_tech, 'r', encoding='utf-8')
+                    fTech = full_tech.read().splitlines()
+                    full_tech.close()
+                    for i in fTech:
+                        num_call = num_f
+                        abonent_full = i.strip()
+                        new_full = new_shop[2].strip().replace(',', "")
+                        if new_full == abonent_full and num_call == 1:
+                            take_mess(task, Test)
+                        elif new_full == abonent_full and num_call == 2:
+                            take_mess(task, Test)
+                        elif new_full == abonent_full and num_call == 3:
+                            take_mess(task, Test)
+                        elif new_full == abonent_full and num_call == 4:
+                            take_mess(task, Test)
+                        else:
+                            continue
 
         # Сортирует ициденты
         elif row_task[0] == 'Зарегистрирован' and row_task[1] == 'инцидент,': # Фильтр ицидентов
