@@ -3,7 +3,7 @@ import sort_direct
 import sort_tech
 import send_mess
 
-def work_mail():
+def mail():
     # Техники
     # Gorev_A = '-1002203331106' #KTO (kto_tech_1)
     # Buldakob_S = '-1002174436582' #KTO (kto_tech_2)
@@ -22,6 +22,19 @@ def work_mail():
     # mail_pass = "BGBLZdH6gbCQyTtY9PYv" # Тест пароль
 
     Test = '-1002202663906'
+
+    Gorev_A = Test #KTO (kto_tech_1)
+    Buldakob_S = Test #KTO (kto_tech_2)
+    Kuznecov_A = Test #KTO (kto_tech_3)
+    Malich_O = Test #KTO (kto_tech_4)
+    Abashev_A = Test #KTO (kto_tech_5)
+    Belich_A = Test #KTO (kto_tech_6)
+    Technic_K = Test #KTO (kto_tech_7)
+
+    Zavyalov_N = Test #FULL (full_tech_1)
+    Malekin_A = Test #FULL (full_tech_2)
+    Kudravcev_A = Test #FULL (full_tech_3)
+    Technic_F = Test #FULL (full_tech_4)
 
     mail_name = "help_alexstroy@mail.ru"
     mail_pass = "09X7BYAayMx9vH7Lqu2t"
@@ -45,13 +58,13 @@ def work_mail():
             if sort_direct.sort(task_inc, 'kto') == True:
 
                 # Фильтрует задачу по технику КТО
-                sort_tech.tech(task, numb_shop, 7, 'kto', Test, Test, Test, Test, Test, Test, Test, 0, 0, 0)
+                sort_tech.tech(task, numb_shop, 7, 'kto', Gorev_A, Buldakob_S, Kuznecov_A, Malich_O, Abashev_A, Belich_A, Technic_K, 0, 0, 0)
 
             # Фильтрует задачу по классу инцидента ФУЛЛ
             elif sort_direct.sort(task_inc, 'full') == True:
 
                 # Фильтрует задачу по технику ФУЛЛ
-                sort_tech.tech(task, numb_shop, 4, 'full', Test, Test, Test, Test, 0, 0, 0, 0, 0, 0)
+                sort_tech.tech(task, numb_shop, 4, 'full', Zavyalov_N, Malekin_A, Kudravcev_A, Technic_F, 0, 0, 0, 0, 0, 0)
             else:
                 send_mess.take_mess(task, '-1002243705128')
 
@@ -66,7 +79,7 @@ def work_mail():
             inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
 
             # Фильтрует задачу по технику ФУЛЛ
-            sort_tech.tech(inced, numb_shop, 4, 'full', Test, Test, Test, Test, 0, 0, 0, 0, 0, 0)
+            sort_tech.tech(inced, numb_shop, 4, 'full', Zavyalov_N, Malekin_A, Kudravcev_A, Technic_F, 0, 0, 0, 0, 0, 0)
 
 
 
