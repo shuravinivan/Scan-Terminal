@@ -25,6 +25,7 @@ def mail (mail_name, mail_pass):
     # Условия для проверки непрочитаных писем
     if num_letter != 0:
 
+
         # Получает и обрабатывает почту
         for letter_num in list_unread:
 
