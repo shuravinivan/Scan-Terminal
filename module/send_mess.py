@@ -1,9 +1,10 @@
 import time
 import requests
+import config_token
 
 def take_mess(mess, id):
     time.sleep(5)
-    TOKEN = "7240204692:AAHiUSc0DdlcN2YEZsj-xbLgc9EqCpkMV1Q"
+    TOKEN = config_token.TOKEN
     chat_id = id
     message = str(' '.join(mess))
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id}&text={message}"
