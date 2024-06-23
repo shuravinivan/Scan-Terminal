@@ -4,8 +4,6 @@ import base64
 
 # Работвет с почтой mail.ru
 # Получает только не прочитаные письма
-# Пароль "09X7BYAayMx9vH7Lqu2t"
-# Логин "help_alexstroy@mail.ru"
 
 #Получает почту
 def mail (mail_name, mail_pass):

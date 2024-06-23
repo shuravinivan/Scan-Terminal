@@ -1,12 +1,8 @@
-from email.header import decode_header
-from bs4 import BeautifulSoup
-import re
 import time
-import requests
-
 import mail_pars
 import sort_direct
 import sort_tech
+import send_mess
 
 # Техники
 # Gorev_A = '-1002203331106' #KTO (kto_tech_1)
@@ -31,7 +27,7 @@ mail_name = "help_alexstroy@mail.ru"
 mail_pass = "09X7BYAayMx9vH7Lqu2t"
 
 # Период запроса на сервер
-request_period = 900
+request_period = 5
 
 # Запускает запрос новых писем и их обработку
 while True:
@@ -57,10 +53,12 @@ while True:
                 sort_tech.tech(task, numb_shop, 7, 'kto', Test, Test, Test, Test, Test, Test, Test, 0, 0, 0)
 
             # Фильтрует задачу по классу инцидента ФУЛЛ
-            if sort_direct.sort(task_inc, 'full') == True:
+            elif sort_direct.sort(task_inc, 'full') == True:
 
                 # Фильтрует задачу по технику ФУЛЛ
                 sort_tech.tech(task, numb_shop, 4, 'full', Test, Test, Test, Test, 0, 0, 0, 0, 0, 0)
+            else:
+                send_mess.take_mess(task, '-1002243705128')
 
         # Сортирует ициденты
         elif title[0] == 'Зарегистрирован' and title[1] == 'инцидент,': # Фильтр ицидентов
@@ -79,9 +77,9 @@ while True:
             continue
 
     else:
-        print('нет сообщений')
+        print('Сообщений нет')
 
-# Таймер периода запроса
-time.sleep(request_period)
+    # Таймер периода запроса
+    time.sleep(request_period)
 
 
