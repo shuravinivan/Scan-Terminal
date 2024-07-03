@@ -3,7 +3,7 @@ import work_mail
 
 
 def main():
-    schedule.every(5).seconds.do(work_mail.mail)
+    schedule.every(15).minutes.do(work_mail.mail)
     while True:
         schedule.run_pending()
 
