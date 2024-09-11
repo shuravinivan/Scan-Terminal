@@ -4,23 +4,52 @@ import sort_tech
 import send_mess
 
 def mail():
-    # Техники
-    Yferov_V = '-1002203331106' #KTO (kto_tech_1)
-    Buldakob_S = '-1002174436582' #KTO (kto_tech_2)
-    Kuznecov_A = '-1002149688633' #KTO, FULL (kto_tech_3, full_tech_4)
-    Malich_O = '-1002228403383' #KTO (kto_tech_4)
-    Abashev_A = '-1002167206495' #KTO (kto_tech_5, full_tech_7)
-    Belich_A = '-1002248392247' #KTO (kto_tech_6)
-    Fedyunov_N = '-1002200909344' #KTO (kto_tech_8)
-    NT = '-1002210202214' #KTO (kto_tech_9)
 
-    # Механики
-    Zavyalov_N = '-1002135018502' #FULL (full_tech_1)
-    Malekin_A = '-1002148412472' #FULL (full_tech_2)
-    Kudravcev_A = '-1002170795117' #KTO, FULL (full_tech_3, kto_tech_7)
-    FULL_Sever = '-1002163832980' #FULL (full_tech_5)
-    FULL_Izhevsk = '-1002233608041' #FULL (full_tech_6)
-    Coffee_Bread = '-1002163771228' #FULL (full_tech_7) Ижевск и округ
+    # Техники КТО
+
+        # ABAN = kto_tech_1 = Абашев_А
+        # BUCT = kto_tech_2 = Булдаков_С
+        # KUAL = kto_tech_3 = Кудрявцев_А
+        # KUAN = kto_tech_4 = Кузнецов_А
+        # FENI = kto_tech_5 = Федюнов_Н
+        # SAGR = kto_tech_6 = Шадрин_Г
+        # YFVA = kto_tech_7 = Юферов_В
+        # NTKT = kto_tech_8 = НТ КТО
+
+    # Техники ФУЛЛ
+
+        # ABAN = full_tech_1 = Абашев_А
+        # ZANI = full_tech_2 = Завьялов_Н
+        # KUAL = full_tech_3 = Кудрявцев_А
+        # KUAN = full_tech_4 = Кузнецов_А
+        # MAAN = full_tech_5 = Малекин_А
+        # NTFU = full_tech_6 = НТ ФУЛЛ
+
+    # Техники Н.Концепт
+
+        # ABAN = new_tech_1 = Абашев_А
+        # KUAL = new_tech_2 = Кудрявцев_А
+        # KUAN = new_tech_3 = Кузнецов_А
+        # YDSE = new_tech_4 = Юданов_С
+        # NTNC = new_tech_5 = НТ Н.Концепт
+
+    # Каналы
+
+    ABAN = '-1002167206495'
+    BUCT = '-1002174436582'
+    ZANI = '-1002135018502'
+    KUAL = '-1002170795117'
+    KUAN = '-1002149688633'
+    MAAN = '-1002148412472'
+    FENI = '-1002200909344'
+    SAGR = '-1002228403383'
+    YFVA = '-1002203331106'
+    YDSE = '-1002163771228'
+    NTKT = '-1002248392247'
+    NTFU = '-1002163832980'
+    NTNC = '-1002233608041'
+
+    XXXX4 = '-1002210202214'
 
     # test = '-1002202663906'
     #
@@ -61,19 +90,19 @@ def mail():
                 if sort_direct.sort(task_inc, 'kto') == True:
 
                     # Фильтрует задачу по технику КТО
-                    sort_tech.tech(task, numb_shop, 9, 'kto', Yferov_V, Buldakob_S, Kuznecov_A, Malich_O, Abashev_A, Belich_A, Kudravcev_A, Fedyunov_N, NT, 0)
+                    sort_tech.tech(task, numb_shop, 8, 'kto', ABAN, BUCT, KUAL, KUAN, FENI, SAGR, YFVA, NTKT, 0, 0)
 
                 # Фильтрует задачу по классу инцидента ФУЛЛ
                 elif sort_direct.sort(task_inc, 'full') == True:
 
                     # Фильтрует задачу по технику ФУЛЛ
-                    sort_tech.tech(task, numb_shop, 7, 'full', Zavyalov_N, Malekin_A, Kudravcev_A, Kuznecov_A, FULL_Sever, FULL_Izhevsk, Abashev_A, 0, 0, 0)
+                    sort_tech.tech(task, numb_shop, 6, 'full', ABAN, ZANI, KUAL, KUAN, MAAN, NTFU, 0, 0, 0, 0)
 
                 # Фильтрует задачу по классу инцидента New_conc
                 elif sort_direct.sort(task_inc, 'new') == True:
 
                     # Фильтрует задачу по технику Coffee_Bread
-                    sort_tech.tech(task, numb_shop, 6, 'new', Coffee_Bread, Kudravcev_A, Kuznecov_A, Abashev_A, Malich_O, Belich_A, 0, 0, 0, 0)
+                    sort_tech.tech(task, numb_shop, 5, 'new', ABAN, KUAL, KUAN, YDSE, NTNC, 0, 0, 0, 0, 0)
 
                 else:
                     send_mess.take_mess(task, '-1002243705128')
