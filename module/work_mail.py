@@ -52,19 +52,6 @@ def mail():
     XXXX4 = '-1002210202214'
 
     # test = '-1002202663906'
-    #
-    # Gorev_A = test  # KTO (kto_tech_1)
-    # Buldakob_S = test  # KTO (kto_tech_2)
-    # Kuznecov_A = test  # KTO (kto_tech_3)
-    # Malich_O = test  # KTO (kto_tech_4)
-    # Abashev_A = test  # KTO (kto_tech_5)
-    # Belich_A = test  # KTO (kto_tech_6)
-    # Technic_K = test  # KTO (kto_tech_7)
-    #
-    # Zavyalov_N = test  # FULL (full_tech_1)
-    # Malekin_A = test  # FULL (full_tech_2)
-    # Kudravcev_A = test  # FULL (full_tech_3)
-    # Technic_F = test  # FULL (full_tech_4)
 
     mail_name = "help_alexstroy@mail.ru"
     mail_pass = "09X7BYAayMx9vH7Lqu2t"
@@ -101,7 +88,7 @@ def mail():
                 # Фильтрует задачу по классу инцидента New_conc
                 elif sort_direct.sort(task_inc, 'new') == True:
 
-                    # Фильтрует задачу по технику Coffee_Bread
+                    # Фильтрует задачу по технику
                     sort_tech.tech(task, numb_shop, 5, 'new', ABAN, KUAL, KUAN, YDSE, NTNC, 0, 0, 0, 0, 0)
 
                 else:
@@ -118,7 +105,7 @@ def mail():
                 inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
 
                 # Фильтрует задачу по технику ФУЛЛ
-                sort_tech.tech(inced, numb_shop, 7, 'full', Zavyalov_N, Malekin_A, Kudravcev_A, Kuznecov_A, FULL_Sever, FULL_Izhevsk, Abashev_A, 0, 0, 0)
+                sort_tech.tech(inced, numb_shop, 6, 'full', ABAN, ZANI, KUAL, KUAN, MAAN, NTFU, 0, 0, 0, 0)
 
 
 
