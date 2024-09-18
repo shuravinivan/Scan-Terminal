@@ -2,6 +2,7 @@ import mail_pars
 import sort_direct
 import sort_tech
 import send_mess
+import datetime
 
 def mail():
 
@@ -110,5 +111,9 @@ def mail():
 
 
         else:
-            print('Сообщений нет')
+            current_time = datetime.datetime.now().time()
+            print('\n')
+            print('Заявок нет')
+            print(current_time)
+            print('\n')
             break

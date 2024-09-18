@@ -9,3 +9,4 @@ def take_mess(mess, id):
     message = str(' '.join(mess))
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id}&text={message}"
     print(requests.get(url).json())  # Эта строка отсылает сообщение
+    print('\n')
