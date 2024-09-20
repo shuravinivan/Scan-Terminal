@@ -49,8 +49,7 @@ def mail():
     NTKT = '-1002248392247'
     NTFU = '-1002163832980'
     NTNC = '-1002233608041'
-
-    XXXX4 = '-1002210202214'
+    NOPA = '-1002210202214'
 
     # test = '-1002202663906'
 
@@ -60,14 +59,15 @@ def mail():
     while True:
 
         letter = mail_pars.mail(mail_name, mail_pass)
+
         if letter != None:
             title = (letter.split('\n')[0]).split()
+            line = letter.split('\n')
 
             # Сортирует задачи
             if title[0] == 'Зарегистрирована' and title[1] == 'новая' and title[2] == 'задача':
 
                 # Создает переменные строк
-                line = letter.split('\n')
                 numb_shop = ((line[3].split()[2]).replace(',', ''))
                 task_inc = line[5]
 
@@ -95,24 +95,33 @@ def mail():
                 else:
                     send_mess.take_mess(task, '-1002243705128')
 
+
             # Сортирует ициденты
             elif title[0] == 'Зарегистрирован' and title[1] == 'инцидент,':  # Фильтр ицидентов
 
-                # Создает переменные строк
-                line = letter.split('\n')
-                numb_shop = (((((line[4]).split())[1]).replace('_', ' ')).split())[1]
+                param = line[7].split(',')
+                parametrs = ((param[0]).split(':')[2]).strip()
+                print(parametrs)
 
-                # Создает формат сообщения инцидента
-                inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
+                if parametrs != 'Обязательный параметр':
+                    # Создает переменные строк
+                    numb_shop = (((((line[4]).split())[1]).replace('_', ' ')).split())[1]
 
-                # Фильтрует задачу по технику ФУЛЛ
-                sort_tech.tech(inced, numb_shop, 6, 'full', ABAN, ZANI, KUAL, KUAN, MAAN, NTFU, 0, 0, 0, 0)
+                    # Создает формат сообщения инцидента
+                    inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
+
+                    # Фильтрует задачу по технику ФУЛЛ
+                    sort_tech.tech(inced, numb_shop, 6, 'full', ABAN, ZANI, KUAL, KUAN, MAAN, NTFU, 0, 0, 0, 0)
+
+                elif parametrs == 'Обязательный параметр':
+                    # Создает формат сообщения инцидента
+                    inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
+                    send_mess.take_mess(inced, NOPA)
 
 
 
         else:
             current_time = datetime.datetime.now().time()
-            print('\n')
             print('Заявок нет')
             print(current_time)
             print('\n')
