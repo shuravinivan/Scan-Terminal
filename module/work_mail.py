@@ -118,6 +118,11 @@ def mail():
                     inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
                     send_mess.take_mess(inced, NOPA)
 
+                elif parametrs == 'Параметр ХО не соответствует ТЗ':
+                    # Создает формат сообщения инцидента
+                    inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
+                    send_mess.take_mess(inced, NOPA)
+
 
 
         else:
