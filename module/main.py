@@ -3,8 +3,7 @@ import work_mail
 
 
 def main():
-    print('Good afternoon!')
-    print('Scan Terminal online.')
+    print('Good afternoon!' + '\n' + 'Scan Terminal online.' + '\n')
     schedule.every(10).minutes.do(work_mail.mail)
     while True:
         schedule.run_pending()
