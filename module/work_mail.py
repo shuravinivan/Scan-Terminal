@@ -14,7 +14,7 @@ def mail():
         # KUAN = kto_tech_4 = Кузнецов_А
         # FENI = kto_tech_5 = Федюнов_Н
         # SAGR = kto_tech_6 = Шадрин_Г
-        # YFVA = kto_tech_7 = Юферов_В
+        # YFVA = kto_tech_7 = Плетнев_П
         # NTKT = kto_tech_8 = НТ КТО
 
     # Техники ФУЛЛ
