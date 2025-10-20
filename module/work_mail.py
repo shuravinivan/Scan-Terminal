@@ -8,14 +8,14 @@ def mail():
 
     # Техники КТО
 
-        # ABAN = kto_tech_1 = Абашев_А
+        # ABAN = kto_tech_1 = Север
         # BUCT = kto_tech_2 = Булдаков_С
         # KUAL = kto_tech_3 = Кудрявцев_А
         # KUAN = kto_tech_4 = Кузнецов_А
         # FENI = kto_tech_5 = Федюнов_Н
         # SAGR = kto_tech_6 = Шадрин_Г
         # YFVA = kto_tech_7 = Плетнев_П
-        # NTKT = kto_tech_8 = НТ КТО
+        # NTKT = kto_tech_8 = Не используется
 
     # Техники ФУЛЛ
 
@@ -24,19 +24,19 @@ def mail():
         # KUAL = full_tech_3 = Кудрявцев_А
         # KUAN = full_tech_4 = Кузнецов_А
         # MAAN = full_tech_5 = Малекин_А
-        # NTFU = full_tech_6 = НТ ФУЛЛ
+        # NTFU = full_tech_6 = Не используется
 
     # Техники Н.Концепт
 
-        # ABAN = new_tech_1 = Абашев_А
+        # ABAN = new_tech_1 = Север
         # KUAL = new_tech_2 = Кудрявцев_А
         # KUAN = new_tech_3 = Кузнецов_А
         # YDSE = new_tech_4 = Юданов_С
-        # NTNC = new_tech_5 = НТ Н.Концепт
+        # NTNC = new_tech_5 = Не используется
 
     # Каналы
 
-    ABAN = '-1002167206495'
+    ABAN = '-1002167206495' 'Север'
     BUCT = '-1002174436582'
     ZANI = '-1002135018502'
     KUAL = '-1002170795117'
@@ -46,9 +46,9 @@ def mail():
     SAGR = '-1002228403383'
     YFVA = '-1002203331106'
     YDSE = '-1002163771228'
-    NTKT = '-1002248392247'
-    NTFU = '-1002163832980'
-    NTNC = '-1002233608041'
+    NTKT = '-1002248392247' 'Не используется'
+    NTFU = '-1002163832980' 'Не используется'
+    NTNC = '-1002233608041' 'Не используется'
     NOPA = '-1002210202214'
 
     # test = '-1002202663906'
@@ -78,19 +78,19 @@ def mail():
                 if sort_direct.sort(task_inc, 'kto') == True:
 
                     # Фильтрует задачу по технику КТО
-                    sort_tech.tech(task, numb_shop, 8, 'kto', ABAN, BUCT, KUAL, KUAN, FENI, SAGR, YFVA, NTKT, 0, 0)
+                    sort_tech.tech(task, numb_shop, 8, 'kto', ABAN, BUCT, KUAL, KUAN, FENI, SAGR, YFVA, ABAN, 0, 0)
 
                 # Фильтрует задачу по классу инцидента ФУЛЛ
                 elif sort_direct.sort(task_inc, 'full') == True:
 
                     # Фильтрует задачу по технику ФУЛЛ
-                    sort_tech.tech(task, numb_shop, 6, 'full', ABAN, ZANI, KUAL, KUAN, MAAN, NTFU, 0, 0, 0, 0)
+                    sort_tech.tech(task, numb_shop, 6, 'full', ABAN, ZANI, KUAL, KUAN, MAAN, ABAN, 0, 0, 0, 0)
 
                 # Фильтрует задачу по классу инцидента New_conc
                 elif sort_direct.sort(task_inc, 'new') == True:
 
                     # Фильтрует задачу по технику
-                    sort_tech.tech(task, numb_shop, 5, 'new', ABAN, KUAL, KUAN, YDSE, NTNC, 0, 0, 0, 0, 0)
+                    sort_tech.tech(task, numb_shop, 5, 'new', ABAN, KUAL, KUAN, YDSE, ABAN, 0, 0, 0, 0, 0)
 
                 else:
                     send_mess.take_mess(task, '-1002243705128')
@@ -111,7 +111,7 @@ def mail():
                     inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
 
                     # Фильтрует задачу по технику ФУЛЛ
-                    sort_tech.tech(inced, numb_shop, 6, 'full', ABAN, ZANI, KUAL, KUAN, MAAN, NTFU, 0, 0, 0, 0)
+                    sort_tech.tech(inced, numb_shop, 6, 'full', ABAN, ZANI, KUAL, KUAN, MAAN, ABAN, 0, 0, 0, 0)
 
                 elif parametrs == 'Обязательный параметр':
                     # Создает формат сообщения инцидента
