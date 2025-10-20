@@ -8,48 +8,48 @@ def mail():
 
     # Техники КТО
 
-        # ABAN = kto_tech_1 = Север
-        # BUCT = kto_tech_2 = Булдаков_С
-        # KUAL = kto_tech_3 = Кудрявцев_А
-        # KUAN = kto_tech_4 = Кузнецов_А
-        # FENI = kto_tech_5 = Федюнов_Н
-        # SAGR = kto_tech_6 = Шадрин_Г
-        # YFVA = kto_tech_7 = Плетнев_П
-        # NTKT = kto_tech_8 = Не используется
+        # k495 = kto_tech_1 = Север
+        # k582 = kto_tech_2 = Булдаков_С
+        # k117 = kto_tech_3 = Кудрявцев_А
+        # k633 = kto_tech_4 = Ува и район
+        # k344 = kto_tech_5 = Федюнов_Н
+        # k383 = kto_tech_6 = Шадрин_Г
+        # k106 = kto_tech_7 = Плетнев_П
+        # k247 = kto_tech_8 = Не используется
 
     # Техники ФУЛЛ
 
-        # ABAN = full_tech_1 = Абашев_А
-        # ZANI = full_tech_2 = Завьялов_Н
-        # KUAL = full_tech_3 = Кудрявцев_А
-        # KUAN = full_tech_4 = Кузнецов_А
-        # MAAN = full_tech_5 = Малекин_А
-        # NTFU = full_tech_6 = Не используется
+        # k495 = full_tech_1 = Абашев_А
+        # k502 = full_tech_2 = Завьялов_Н
+        # k117 = full_tech_3 = Кудрявцев_А
+        # k633 = full_tech_4 = Ува и район
+        # k472 = full_tech_5 = Малекин_А
+        # k980 = full_tech_6 = Не используется
 
     # Техники Н.Концепт
 
-        # ABAN = new_tech_1 = Север
-        # KUAL = new_tech_2 = Кудрявцев_А
-        # KUAN = new_tech_3 = Кузнецов_А
-        # YDSE = new_tech_4 = Юданов_С
-        # NTNC = new_tech_5 = Не используется
+        # k495 = new_tech_1 = Север
+        # k117 = new_tech_2 = Кудрявцев_А
+        # k633 = new_tech_3 = Ува и район
+        # k228 = new_tech_4 = Юданов_С
+        # k041 = new_tech_5 = Не используется
 
     # Каналы
 
-    ABAN = '-1002167206495' 'Север'
-    BUCT = '-1002174436582'
-    ZANI = '-1002135018502'
-    KUAL = '-1002170795117'
-    KUAN = '-1002149688633'
-    MAAN = '-1002148412472'
-    FENI = '-1002200909344'
-    SAGR = '-1002228403383'
-    YFVA = '-1002203331106'
-    YDSE = '-1002163771228'
-    NTKT = '-1002248392247' 'Не используется'
-    NTFU = '-1002163832980' 'Не используется'
-    NTNC = '-1002233608041' 'Не используется'
-    NOPA = '-1002210202214'
+    k495 = '-1002167206495' 'Север'
+    k582 = '-1002174436582'
+    k502 = '-1002135018502'
+    k117 = '-1002170795117'
+    k633 = '-1002149688633'
+    k472 = '-1002148412472'
+    k344 = '-1002200909344'
+    k383 = '-1002228403383'
+    k106 = '-1002203331106'
+    k228 = '-1002163771228'
+    k247 = '-1002248392247' 'Не используется'
+    k980 = '-1002163832980' 'Не используется'
+    k041 = '-1002233608041' 'Не используется'
+    k214 = '-1002210202214'
 
     # test = '-1002202663906'
 
@@ -78,19 +78,19 @@ def mail():
                 if sort_direct.sort(task_inc, 'kto') == True:
 
                     # Фильтрует задачу по технику КТО
-                    sort_tech.tech(task, numb_shop, 8, 'kto', ABAN, BUCT, KUAL, KUAN, FENI, SAGR, YFVA, ABAN, 0, 0)
+                    sort_tech.tech(task, numb_shop, 8, 'kto', k495, k582, k117, k633, k344, k383, k106, k495, 0, 0)
 
                 # Фильтрует задачу по классу инцидента ФУЛЛ
                 elif sort_direct.sort(task_inc, 'full') == True:
 
                     # Фильтрует задачу по технику ФУЛЛ
-                    sort_tech.tech(task, numb_shop, 6, 'full', ABAN, ZANI, KUAL, KUAN, MAAN, ABAN, 0, 0, 0, 0)
+                    sort_tech.tech(task, numb_shop, 6, 'full', k495, k502, k117, k633, k472, k495, 0, 0, 0, 0)
 
                 # Фильтрует задачу по классу инцидента New_conc
                 elif sort_direct.sort(task_inc, 'new') == True:
 
                     # Фильтрует задачу по технику
-                    sort_tech.tech(task, numb_shop, 5, 'new', ABAN, KUAL, KUAN, YDSE, ABAN, 0, 0, 0, 0, 0)
+                    sort_tech.tech(task, numb_shop, 5, 'new', k495, k117, k633, k228, k495, 0, 0, 0, 0, 0)
 
                 else:
                     send_mess.take_mess(task, '-1002243705128')
@@ -111,17 +111,17 @@ def mail():
                     inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
 
                     # Фильтрует задачу по технику ФУЛЛ
-                    sort_tech.tech(inced, numb_shop, 6, 'full', ABAN, ZANI, KUAL, KUAN, MAAN, ABAN, 0, 0, 0, 0)
+                    sort_tech.tech(inced, numb_shop, 6, 'full', k495, k502, k117, k633, k472, k495, 0, 0, 0, 0)
 
                 elif parametrs == 'Обязательный параметр':
                     # Создает формат сообщения инцидента
                     inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
-                    send_mess.take_mess(inced, NOPA)
+                    send_mess.take_mess(inced, k214)
 
                 elif parametrs == 'Параметр ХО не соответствует ТЗ':
                     # Создает формат сообщения инцидента
                     inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
-                    send_mess.take_mess(inced, NOPA)
+                    send_mess.take_mess(inced, k214)
 
 
 
