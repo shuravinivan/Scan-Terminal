@@ -15,7 +15,7 @@ def mail():
         # k344 = kto_tech_5 = Федюнов_Н
         # k383 = kto_tech_6 = Шадрин_Г
         # k106 = kto_tech_7 = Плетнев_П
-        # k247 = kto_tech_8 = Не используется
+        # k980 = kto_tech_9 = Яшин Г
 
     # Техники ФУЛЛ
 
@@ -24,7 +24,6 @@ def mail():
         # k117 = full_tech_3 = Кудрявцев_А
         # k633 = full_tech_4 = Ува и район
         # k472 = full_tech_5 = Малекин_А
-        # k980 = full_tech_6 = Не используется
 
     # Техники Н.Концепт
 
@@ -32,7 +31,6 @@ def mail():
         # k117 = new_tech_2 = Кудрявцев_А
         # k633 = new_tech_3 = Ува и район
         # k228 = new_tech_4 = Юданов_С
-        # k041 = new_tech_5 = Не используется
 
     # Каналы
 
@@ -78,7 +76,7 @@ def mail():
                 if sort_direct.sort(task_inc, 'kto') == True:
 
                     # Фильтрует задачу по технику КТО
-                    sort_tech.tech(task, numb_shop, 8, 'kto', k495, k582, k117, k633, k344, k383, k106, k495, 0, 0)
+                    sort_tech.tech(task, numb_shop, 8, 'kto', k495, k582, k117, k633, k344, k383, k106, k495, k980, 0)
 
                 # Фильтрует задачу по классу инцидента ФУЛЛ
                 elif sort_direct.sort(task_inc, 'full') == True:
