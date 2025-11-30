@@ -79,19 +79,19 @@ def mail():
                 if sort_direct.sort(task_inc, 'kto') == True:
 
                     # Фильтрует задачу по технику КТО
-                    sort_tech.tech(task, numb_shop, 8, 'kto', k495, k582, k117, k344, k344, k383, k106, k495, k980, 0)
+                    sort_tech.tech(task, numb_shop, 6, 'kto', k582, k117, k106, k344, k383, k980, 0, 0, 0, 0)
 
                 # Фильтрует задачу по классу инцидента ФУЛЛ
                 elif sort_direct.sort(task_inc, 'full') == True:
 
                     # Фильтрует задачу по технику ФУЛЛ
-                    sort_tech.tech(task, numb_shop, 6, 'full', k495, k502, k117, k633, k472, k495, 0, 0, 0, 0)
+                    sort_tech.tech(task, numb_shop, 4, 'full', k502, k117, k472, k633, 0, 0, 0, 0, 0, 0)
 
                 # Фильтрует задачу по классу инцидента New_conc
                 elif sort_direct.sort(task_inc, 'new') == True:
 
                     # Фильтрует задачу по технику
-                    sort_tech.tech(task, numb_shop, 5, 'new', k495, k117, k633, k228, k344, 0, 0, 0, 0, 0)
+                    sort_tech.tech(task, numb_shop, 4, 'new', k228, k117, k633, k344, 0, 0, 0, 0, 0, 0)
 
                 else:
                     send_mess.take_mess(task, k128)
