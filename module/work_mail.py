@@ -112,7 +112,7 @@ def mail():
                     inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
 
                     # Фильтрует задачу по технику ФУЛЛ
-                    sort_tech.tech(inced, numb_shop, 6, 'full', k495, k502, k117, k633, k472, k495, 0, 0, 0, 0)
+                    sort_tech.tech(inced, numb_shop, 4, 'full', k502, k117, k472, k633, 0, 0, 0, 0, 0, 0)
 
                 elif parametrs == 'Обязательный параметр':
                     # Создает формат сообщения инцидента
