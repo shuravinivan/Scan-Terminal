@@ -3,6 +3,7 @@ import sort_direct
 import sort_tech
 import send_mess
 import datetime
+from datetime import date
 
 def mail():
 
@@ -69,8 +70,36 @@ def mail():
                 numb_shop = ((line[3].split()[2]).replace(',', ''))
                 task_inc = line[5]
 
+
+
+                # Изменение конечной даты
+                a = line[1]
+                b = line[2]
+
+                first_date = a[21] + a[22] + a[23] + a[24] + a[18] + a[19] + a[15] + a[16]
+                second_date = b[32] + b[33] + b[34] + b[35] + b[29] + b[30] + b[26] + b[27]
+
+                aa = date.fromisoformat(first_date)
+                bb = date.fromisoformat(second_date)
+                delta = abs(aa - bb)
+
+                real_date = date.fromisoformat(first_date)
+                new_data = real_date + delta / 2
+
+                new_date = ('Плановый срок устранения: ' + str(new_data)[8] + str(new_data)[9] + '.'
+                            + str(new_data)[5] + str(new_data)[6] + '.'
+                            + str(new_data)[0] + str(new_data)[1] + str(new_data)[2] + str(new_data)[3]
+                            + b[36] + b[37] + b[38] + b[39] + b[40] + b[41] + b[42] + b[43] + b[44] + b[45] + b[46]
+                            + b[47] + b[48] + b[49] + b[50] + b[51] + b[52] + b[53] + b[54])
+
                 # Создает формат сообщения задачи
-                task = [line[0], line[1], line[2], line[3], line[5], line[6]]
+                task = [line[0], line[1], new_date, line[3], line[5], line[6]]
+
+                # Конец стороннего кода
+
+
+                # Создает формат сообщения задачи
+                # task = [line[0], line[1], line[2], line[3], line[5], line[6]]
 
                 # Фильтрует задачу по классу инцидента КТО
                 if sort_direct.sort(task_inc, 'kto') == True:
