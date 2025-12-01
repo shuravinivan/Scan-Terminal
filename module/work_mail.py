@@ -46,25 +46,37 @@ def mail():
 
 
 
-                # Изменение конечной даты
-                a = line[1]
-                b = line[2]
+                # Изменение конечной даты (Сторонний код)
 
-                first_date = a[21] + a[22] + a[23] + a[24] + a[18] + a[19] + a[15] + a[16]
-                second_date = b[32] + b[33] + b[34] + b[35] + b[29] + b[30] + b[26] + b[27]
+                first_date = line[1][21] + line[1][22] + line[1][23] + line[1][24] + line[1][18] + line[1][19] + \
+                             line[1][15] + line[1][16]
+                second_date = line[2][32] + line[2][33] + line[2][34] + line[2][35] + line[2][29] + line[2][30] + \
+                              line[2][26] + line[2][27]
 
-                aa = date.fromisoformat(first_date)
-                bb = date.fromisoformat(second_date)
-                delta = abs(aa - bb)
+                start_date = date.fromisoformat(first_date)
+                end_date = date.fromisoformat(second_date)
+                delta = abs(start_date - end_date)
+
+                delta_date = delta.days
 
                 real_date = date.fromisoformat(first_date)
-                new_data = real_date + delta / 2
+
+                if delta_date <= 1:
+                    new_data = real_date + delta
+                else:
+                    new_data = real_date + delta / 2
 
                 new_date = ('Плановый срок устранения: ' + str(new_data)[8] + str(new_data)[9] + '.'
                             + str(new_data)[5] + str(new_data)[6] + '.'
                             + str(new_data)[0] + str(new_data)[1] + str(new_data)[2] + str(new_data)[3]
-                            + b[36] + b[37] + b[38] + b[39] + b[40] + b[41] + b[42] + b[43] + b[44] + b[45] + b[46]
-                            + b[47] + b[48] + b[49] + b[50] + b[51] + b[52] + b[53] + b[54])
+                            + line[2][36] + line[2][37] + line[2][38] + line[2][39] + line[2][40] + line[2][41]
+                            + line[2][42] + line[2][43] + line[2][44] + line[2][45] + line[2][46]
+                            + line[2][47] + line[2][48] + line[2][49] + line[2][50] + line[2][51] + line[2][52] +
+                            line[2][53] + line[2][54])
+
+                # Изменение конечной даты (Конец стороннего кода)
+
+
 
                 # Создает формат сообщения задачи
                 task = [line[0], line[1], new_date, line[3], line[5], line[6]]
