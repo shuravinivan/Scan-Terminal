@@ -1,10 +1,11 @@
-import schedule
+# import schedule
 import work_mail
 import time
 
 
 def main():
-    print('Добрый день!' + '\n' + 'Терминал активен.' + '\n')
+    data = time.strftime('%d/%m/%Y %H:%M:%S')
+    print('\n' + 'Добрый день!' + '\n' + 'Терминал активен.' + '\n' + data + '\n')
     # schedule.every(10).minutes.do(work_mail.mail)
     # work_mail.mail()
     # time.sleep(600)
