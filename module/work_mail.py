@@ -4,6 +4,7 @@ import sort_tech
 import send_mess
 import datetime
 from datetime import date
+import time
 
 def mail():
 
@@ -141,6 +142,7 @@ def mail():
         else:
             current_time = datetime.datetime.now().time()
             print('Заявок нет')
-            print(current_time)
+            print(time.ctime(time.time()))
+            # print(current_time)
             print('\n')
             break
