@@ -4,6 +4,8 @@ import config_token
 
 def take_mess(mess, id):
     time.sleep(5)
+    data = time.strftime('%d/%m/%Y %H:%M')
+    print(data)
     TOKEN = config_token.TOKEN
     chat_id = id
     message = str(' '.join(mess))

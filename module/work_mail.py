@@ -140,7 +140,7 @@ def mail():
 
 
         else:
-            data = time.strftime('%d/%m/%Y - %H:%M:%S')
+            data = time.strftime('%d/%m/%Y %H:%M')
             print(data,' Новых заявок нет' )
             # print(time.ctime(time.time()))
             # print(current_time)
