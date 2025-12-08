@@ -5,7 +5,7 @@ import time
 
 def main():
     data = time.strftime('%d/%m/%Y %H:%M')
-    print('\n' + 'Добрый день! Сканер терминала вер.1.8.06 активен. ' + data + '\n')
+    print('\n' + 'Добрый день! Сканер терминала вер.1.8.07 активен. ' + data + '\n')
     # schedule.every(10).minutes.do(work_mail.mail)
     while True:
         work_mail.mail()
