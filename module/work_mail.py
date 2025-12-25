@@ -5,6 +5,9 @@ import send_mess
 # import datetime
 from datetime import date
 import time
+from config import format_date
+from config import login
+from config import password
 
 def mail():
 
@@ -27,14 +30,14 @@ def mail():
     k495 = '-1002167206495' #Не используется
     # test = '-1002202663906'
 
-    mail_name = "help_alexstroy@mail.ru"
-    mail_pass = "09X7BYAayMx9vH7Lqu2t"
+    mail_name = login
+    mail_pass = password
 
     while True:
 
         letter = mail_pars.mail(mail_name, mail_pass)
 
-        if letter != None:
+        if letter is not None:
             title = (letter.split('\n')[0]).split()
             line = letter.split('\n')
 
@@ -110,8 +113,8 @@ def mail():
                     send_mess.take_mess(task, k128)
 
 
-            # Сортирует ициденты
-            elif title[0] == 'Зарегистрирован' and title[1] == 'инцидент,':  # Фильтр ицидентов
+            # Сортирует инциденты
+            elif title[0] == 'Зарегистрирован' and title[1] == 'инцидент,':  # Фильтр инцидентов
 
                 param = line[7].split(',')
                 parametrs = ((param[0]).split(':')[2]).strip()
@@ -140,7 +143,7 @@ def mail():
 
 
         else:
-            data = time.strftime('%d/%m/%Y %H:%M')
+            data = time.strftime(format_date)
             print(data,' Новых заявок нет' )
             # print(time.ctime(time.time()))
             # print(current_time)
