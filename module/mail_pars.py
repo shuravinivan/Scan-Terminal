@@ -50,4 +50,4 @@ def mail (mail_name, mail_pass):
 
     except:
         print(time.strftime(format_date))
-        print('Нет соединения!', '\n')
+        print('Нет интернет соединения!', '\n')

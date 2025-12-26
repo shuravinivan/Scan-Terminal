@@ -2,11 +2,12 @@
 import work_mail
 import time
 from config import format_date
+from config import version
 
 
 def main():
     data = time.strftime(format_date)
-    print('\n' + 'Добрый день! Сканер терминала вер.1.8.10 активен. ' + data + '\n')
+    print('\n' + data + ' ' + 'Добрый день! Сканер терминала' + version + 'активен. ' + '\n')
     # schedule.every(10).minutes.do(work_mail.mail)
     while True:
         work_mail.mail()
