@@ -118,7 +118,7 @@ def mail():
 
                 param = line[7].split(',')
                 parametrs = ((param[0]).split(':')[2]).strip()
-                print(parametrs)
+                # print(parametrs)
 
                 if parametrs != 'Обязательный параметр':
                     # Создает переменные строк
