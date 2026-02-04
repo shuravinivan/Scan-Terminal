@@ -2,7 +2,6 @@ import mail_pars
 import sort_direct
 import sort_tech
 import send_mess
-# import datetime
 from datetime import date
 import time
 from config import format_date
@@ -15,7 +14,7 @@ def mail():
 
     k214 = '-1002210202214' # Нарушение параметра
     k582 = '-1002174436582' # Булдаков С - kto_tech_1
-    k502 = '-1002135018502' # Завьлов Н - full_tech_1
+    k502 = '-1002135018502' # Завьялов Н - full_tech_1
     k117 = '-1002170795117' # Кудрявцев А - kto_tech_2, full_tech_2, new_tech_2
     k633 = '-1002149688633' # Ува и район - full_tech_4, new_tech_3
     k472 = '-1002148412472' # Малекин А - full_tech_3
@@ -48,10 +47,7 @@ def mail():
                 numb_shop = ((line[3].split()[2]).replace(',', ''))
                 task_inc = line[5]
 
-
-
                 # Изменение конечной даты (Сторонний код)
-
                 first_date = line[1][21] + line[1][22] + line[1][23] + line[1][24] + line[1][18] + line[1][19] + \
                              line[1][15] + line[1][16]
                 second_date = line[2][32] + line[2][33] + line[2][34] + line[2][35] + line[2][29] + line[2][30] + \
@@ -78,15 +74,9 @@ def mail():
                             + line[2][47] + line[2][48] + line[2][49] + line[2][50] + line[2][51] + line[2][52] +
                             line[2][53] + line[2][54])
 
-                # Изменение конечной даты (Конец стороннего кода)
-
-
-
                 # Создает формат сообщения задачи
                 task = [line[0], line[1], new_date, line[3], line[5], line[6]]
-
                 # Конец стороннего кода
-
 
                 # Создает формат сообщения задачи
                 # task = [line[0], line[1], line[2], line[3], line[5], line[6]]
@@ -112,13 +102,11 @@ def mail():
                 else:
                     send_mess.take_mess(task, k128)
 
-
             # Сортирует инциденты
-            elif title[0] == 'Зарегистрирован' and title[1] == 'инцидент,':  # Фильтр инцидентов
+            elif title[0] == 'Зарегистрирован' and title[1] == 'инцидент,':
 
                 param = line[7].split(',')
                 parametrs = ((param[0]).split(':')[2]).strip()
-                # print(parametrs)
 
                 if parametrs != 'Обязательный параметр':
                     # Создает переменные строк
@@ -140,12 +128,8 @@ def mail():
                     inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
                     send_mess.take_mess(inced, k214)
 
-
-
         else:
             data = time.strftime(format_date)
             print(data,' Новых заявок нет' )
-            # print(time.ctime(time.time()))
-            # print(current_time)
             print('\n')
             break
