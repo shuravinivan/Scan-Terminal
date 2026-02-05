@@ -3,8 +3,8 @@ import time
 from config import format_date
 from config import version
 
-def main():
-    try:
+try:
+    def main():
         data = time.strftime(format_date)
         print('\n' + data + ' ' + 'Добрый день! Сканер терминала' + version + 'активен. ' + '\n')
 
@@ -12,9 +12,9 @@ def main():
             work_mail.mail()
             time.sleep(600)
 
-    except:
-        print(time.strftime(format_date))
-        print('Внутренняя ошибка')
+except:
+    print(time.strftime(format_date))
+    print('Внутренняя ошибка')
 
 if __name__ == "__main__":
     main()
