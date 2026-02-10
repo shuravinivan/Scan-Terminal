@@ -49,4 +49,4 @@ def mail (mail_name, mail_pass):
 
     except:
         print(time.strftime(format_date))
-        print('Нет интернет соединения!', '\n')
+        print('Не устойчивое интернет соединение!', '\n')
