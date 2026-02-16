@@ -19,14 +19,14 @@ def mail():
         k633 = '-1002149688633' # Ува и район - full_tech_4, new_tech_3
         k472 = '-1002148412472' # Малекин А - full_tech_3
         k344 = '-1002200909344' # Федюнов Н - kto_tech_4, new_tech_4
-        k383 = '-1002228403383' # Шадрин Г - kto_tech_5
-        k106 = '-1002203331106' # Плетнев П - kto_tech_3
+        k383 = '-1002228403383' # Григорьев А - kto_tech_5
+        k106 = '-1002203331106' # Камашев В - kto_tech_3
         k228 = '-1002163771228' # Юданов С - new_tech_1
         k980 = '-1002163832980' # Яшин Г - kto_tech_6
         k128 = '-1002243705128' # Нет класса инцидента
-        k247 = '-1002248392247' #Не используется
-        k041 = '-1002233608041' #Не используется
-        k495 = '-1002167206495' #Не используется
+        k247 = '-1002248392247' # Нет техника - kto_tech_7
+        k041 = '-1002233608041' # Свободен
+        k495 = '-1002167206495' # Свободен
         # test = '-1002202663906'
 
         mail_name = login
@@ -82,19 +82,19 @@ def mail():
                     # task = [line[0], line[1], line[2], line[3], line[5], line[6]]
 
                     # Фильтрует задачу по классу инцидента КТО
-                    if sort_direct.sort(task_inc, 'kto') == True:
+                    if sort_direct.sort(task_inc, 'kto'):
 
                         # Фильтрует задачу по технику КТО
-                        sort_tech.tech(task, numb_shop, 6, 'kto', k582, k117, k106, k344, k383, k980, 0, 0, 0, 0)
+                        sort_tech.tech(task, numb_shop, 7, 'kto', k582, k117, k106, k344, k383, k980, k247, 0, 0, 0)
 
                     # Фильтрует задачу по классу инцидента ФУЛЛ
-                    elif sort_direct.sort(task_inc, 'full') == True:
+                    elif sort_direct.sort(task_inc, 'full'):
 
                         # Фильтрует задачу по технику ФУЛЛ
                         sort_tech.tech(task, numb_shop, 4, 'full', k502, k117, k472, k633, 0, 0, 0, 0, 0, 0)
 
                     # Фильтрует задачу по классу инцидента New_conc
-                    elif sort_direct.sort(task_inc, 'new') == True:
+                    elif sort_direct.sort(task_inc, 'new'):
 
                         # Фильтрует задачу по технику
                         sort_tech.tech(task, numb_shop, 4, 'new', k228, k117, k633, k344, 0, 0, 0, 0, 0, 0)
