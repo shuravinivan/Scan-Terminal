@@ -14,7 +14,7 @@ try:
 
 except:
     print(time.strftime(format_date))
-    print('Ошибка модуля main')
+    print('Ошибка ведущего модуля')
 
 if __name__ == "__main__":
     main()

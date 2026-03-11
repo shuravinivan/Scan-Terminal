@@ -16,4 +16,4 @@ def take_mess(mess, id):
         print('\n')
     except:
         print(time.strftime(format_date))
-        print('Ошибка модуля send_mess', '\n')
+        print('Ошибка модуля отправки сообщений', '\n')

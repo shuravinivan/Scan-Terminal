@@ -135,4 +135,4 @@ def mail():
                 break
     except:
         print(time.strftime(format_date))
-        print('Ошибка модуля work_mail', '\n')
+        print('Ошибка модуля обработки почты', '\n')

@@ -49,4 +49,4 @@ def mail (mail_name, mail_pass):
 
     except:
         print(time.strftime(format_date))
-        print('Ошибка модуля mail_pars', '\n')
+        print('Ошибка модуля анализа почты', '\n')

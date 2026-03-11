@@ -46,4 +46,4 @@ def tech(task, num, col, direct, id_1, id_2, id_3, id_4, id_5, id_6, id_7, id_8,
                     continue
     except:
         print(time.strftime(format_date))
-        print('Ошибка модуля sort_tech', '\n')
+        print('Ошибка модуля сортировки техников', '\n')

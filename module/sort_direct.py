@@ -16,4 +16,4 @@ def sort(task_inc, direct):
                 return klass_inc
     except:
         print(time.strftime(format_date))
-        print('Ошибка модуля sort_direct', '\n')
+        print('Ошибка модуля сортировки типа обслуживания', '\n')
