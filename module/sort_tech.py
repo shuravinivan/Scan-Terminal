@@ -1,4 +1,4 @@
-import send_mess
+import send_max_mess
 import time
 from config import format_date
 
@@ -23,25 +23,25 @@ def tech(task, num, col, direct, id_1, id_2, id_3, id_4, id_5, id_6, id_7, id_8,
                 subscriber= i.strip()
                 real_subscriber = num.strip().replace(',', "")
                 if real_subscriber == subscriber and num_call == 1:
-                    send_mess.take_mess(task, id_1)
+                    send_max_mess.send_mess(task, id_1)
                 elif real_subscriber == subscriber and num_call == 2:
-                    send_mess.take_mess(task, id_2)
+                    send_max_mess.send_mess(task, id_2)
                 elif real_subscriber == subscriber and num_call == 3:
-                    send_mess.take_mess(task, id_3)
+                    send_max_mess.send_mess(task, id_3)
                 elif real_subscriber == subscriber and num_call == 4:
-                    send_mess.take_mess(task, id_4)
+                    send_max_mess.send_mess(task, id_4)
                 elif real_subscriber == subscriber and num_call == 5:
-                    send_mess.take_mess(task, id_5)
+                    send_max_mess.send_mess(task, id_5)
                 elif real_subscriber == subscriber and num_call == 6:
-                    send_mess.take_mess(task, id_6)
+                    send_max_mess.send_mess(task, id_6)
                 elif real_subscriber == subscriber and num_call == 7:
-                    send_mess.take_mess(task, id_7)
+                    send_max_mess.send_mess(task, id_7)
                 elif real_subscriber == subscriber and num_call == 8:
-                    send_mess.take_mess(task, id_8)
+                    send_max_mess.send_mess(task, id_8)
                 elif real_subscriber == subscriber and num_call == 9:
-                    send_mess.take_mess(task, id_9)
+                    send_max_mess.send_mess(task, id_9)
                 elif real_subscriber == subscriber and num_call == 10:
-                    send_mess.take_mess(task, id_10)
+                    send_max_mess.send_mess(task, id_10)
                 else:
                     continue
     except:

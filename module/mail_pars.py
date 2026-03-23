@@ -46,7 +46,6 @@ def mail (mail_name, mail_pass):
         # Выход с почтового сервера
         imap.close()
         imap.logout()
-
     except:
         print(time.strftime(format_date))
         print('Ошибка модуля анализа почты', '\n')

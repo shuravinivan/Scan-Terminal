@@ -5,7 +5,7 @@ from config import format_date
 
 def take_mess(mess, id):
     try:
-        time.sleep(5)
+        time.sleep(2)
         data = time.strftime(format_date)
         print(data)
         key = TOKEN
