@@ -1,6 +1,6 @@
 import time
 import requests
-from config import TOKEN
+from config import TOKEN_TEL
 from config import format_date
 
 def take_mess(mess, id):
@@ -8,7 +8,7 @@ def take_mess(mess, id):
         time.sleep(2)
         data = time.strftime(format_date)
         print(data)
-        key = TOKEN
+        key = TOKEN_TEL
         chat_id = id
         message = str(' '.join(mess))
         url = f"https://api.telegram.org/bot{key}/sendMessage?chat_id={chat_id}&text={message}"

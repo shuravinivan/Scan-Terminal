@@ -1,57 +1,15 @@
 import mail_pars
 import sort_direct
 import sort_tech
-# import send_mess
 import send_max_mess
 from datetime import date
 import time
-from config import format_date
-from config import login
-from config import password
+from config import format_date, mail_name, mail_pass, params, no_class
+from config import group_1, group_2, group_3, group_4, group_5, group_6
+from config import group_7, group_8, group_9, group_10, group_11, group_12
 
 def mail():
     try:
-        # Каналы (Телеграмм)
-        # parameter = '-1002210202214' # Нарушение параметра
-        # no_inc_class = '-1002243705128' # Нет класса инцидента
-        # k582 = '-1002174436582' # Булдаков С - kto_tech_1
-        # k502 = '-1002135018502' # Завьялов Н - full_tech_1
-        # k228 = '-1002163771228' # Юданов С - new_tech_1
-        # k117 = '-1002170795117' # Кудрявцев А - kto_tech_2, full_tech_2, new_tech_2
-        # k472 = '-1002148412472' # Малекин А - full_tech_3
-        # k344 = '-1002200909344' # Федюнов Н - kto_tech_3
-        # k383 = '-1002228403383' # Петров Д - kto_tech_4
-        # k980 = '-1002163832980' # Яшин Г - kto_tech_5
-        # k633 = '-1002149688633' # Ува и район - full_tech_4
-        # k247 = '-1002248392247' # КМ и ХП - new_tech_3
-        # k106 = '-1002203331106' # ФУЛЛ без техника - full_tech_5
-        # k041 = '-1002233608041' # Свободен
-        # k495 = '-1002167206495' # Свободен
-        # k925 = '-1002184358925' # Свободен
-        # k906 = '-1002202663906' # Канал для тестирования
-
-        # Каналы Макс
-        params = '-72297490352648'  # Нарушение параметра
-        no_inc_class = '-72297195047432'  # Нет класса инцидента
-        k582 = '-72294497126920'  # Булдаков С - kto_tech_1
-        k502 = '-72297108605448'  # Завьялов Н - full_tech_1
-        k228 = '-72296755956232'  # Юданов С - new_tech_1
-        k117 = '-72296833288712'  # Кудрявцев А - kto_tech_2, full_tech_2, new_tech_2
-        k472 = '-72296976550408'  # Малекин А - full_tech_3
-        k344 = '-72296437254664'  # Федюнов Н - kto_tech_3
-        k383 = '-72297340275208'  # Петров Д - kto_tech_4
-        k980 = '-72296673839624'  # Яшин Г - kto_tech_5
-        k633 = '-72297270348296'  # Ува и район - full_tech_4
-        k247 = '-72297403189768'  # КМ и ХП - new_tech_3
-        k106 = '-72297781856776'  # ФУЛЛ без техника - full_tech_5
-        k041 = '-72297559165448'  # Свободен_1
-        k495 = '-72297624504840'  # Свободен_2
-        k925 = '-72297706359304'  # Свободен_3
-        k906 = '-72298581395976'  # Канал для тестирования
-
-        mail_name = login
-        mail_pass = password
-
         while True:
 
             letter = mail_pars.mail(mail_name, mail_pass)
@@ -105,22 +63,22 @@ def mail():
                     if sort_direct.sort(task_inc, 'kto'):
 
                         # Фильтрует задачу по технику КТО
-                        sort_tech.tech(task, numb_shop, 5, 'kto', k582, k117, k344, k383, k980, 0, 0, 0, 0, 0)
+                        sort_tech.tech(task, numb_shop, 6, 'kto', group_1, group_4, group_6, group_7, group_8, group_12, 0, 0, 0, 0)
 
                     # Фильтрует задачу по классу инцидента ФУЛЛ
                     elif sort_direct.sort(task_inc, 'full'):
 
                         # Фильтрует задачу по технику ФУЛЛ
-                        sort_tech.tech(task, numb_shop, 5, 'full', k502, k117, k472, k633, k106, 0, 0, 0, 0, 0)
+                        sort_tech.tech(task, numb_shop, 5, 'full', group_2, group_4, group_5, group_9, group_11, 0, 0, 0, 0, 0)
 
                     # Фильтрует задачу по классу инцидента New_conc
                     elif sort_direct.sort(task_inc, 'new'):
 
                         # Фильтрует задачу по технику
-                        sort_tech.tech(task, numb_shop, 3, 'new', k228, k117, k247, 0, 0, 0, 0, 0, 0, 0)
+                        sort_tech.tech(task, numb_shop, 3, 'new', group_3, group_4, group_10, 0, 0, 0, 0, 0, 0, 0)
 
                     else:
-                        send_max_mess.send_mess(task, no_inc_class)
+                        send_max_mess.send_mess(task, no_class)
 
                 # Сортирует инциденты
                 elif title[0] == 'Зарегистрирован' and title[1] == 'инцидент,':
@@ -136,7 +94,7 @@ def mail():
                         inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
 
                         # Фильтрует задачу по технику ФУЛЛ
-                        sort_tech.tech(inced, numb_shop, 4, 'full', k502, k117, k472, k633, 0, 0, 0, 0, 0, 0)
+                        sort_tech.tech(inced, numb_shop, 4, 'full', group_2, group_4, group_5, group_9, 0, 0, 0, 0, 0, 0)
 
                     elif parameters == 'Обязательный параметр':
                         # Создает формат сообщения инцидента
