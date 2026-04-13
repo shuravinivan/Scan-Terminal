@@ -75,7 +75,7 @@ def mail():
                     elif sort_direct.sort(task_inc, 'new'):
 
                         # Фильтрует задачу по технику
-                        sort_tech.tech(task, numb_shop, 3, 'new', group_3, group_4, group_10, 0, 0, 0, 0, 0, 0, 0)
+                        sort_tech.tech(task, numb_shop, 3, 'new', group_3, group_4, group_10, group_11, 0, 0, 0, 0, 0, 0)
 
                     else:
                         send_max_mess.send_mess(task, no_class)
