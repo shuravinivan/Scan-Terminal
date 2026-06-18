@@ -7,6 +7,7 @@ import time
 from config import format_date, mail_name, mail_pass, params, no_class
 from config import group_1, group_2, group_3, group_4, group_5, group_6
 from config import group_7, group_8, group_9, group_10, group_11, group_12
+from config import group_13
 
 def mail():
     try:
@@ -105,7 +106,14 @@ def mail():
                         # Создает формат сообщения инцидента
                         inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
                         send_max_mess.send_mess(inced, params)
+                #Сортирует сметы
+                elif title[0] == 'Смета':
+                    task = [line[0], line[1], line[2], line[3], line[5], line[6]]
+                    send_max_mess.send_mess(task,group_13)
 
+                elif title[0] == 'По' and title[1] == 'смете':
+                    task = [line[0], line[1], line[2], line[3], line[5], line[6]]
+                    send_max_mess.send_mess(task, group_13)
             else:
                 data = time.strftime(format_date)
                 print(data,' Новых заявок нет' )
