@@ -19,6 +19,11 @@ def mail():
                 title = (letter.split('\n')[0]).split()
                 line = letter.split('\n')
 
+                estimate_canceled = ((line[0]).split(' '))[0] + ((line[0]).split(' '))[1] # Смета отменена
+                estimate_returned = ((line[0]).split(' '))[0] + ((line[0]).split(' '))[1] + ((line[0]).split(' '))[2] # Смета на доработку
+                estimate_agreed = ((line[0]).split(' '))[0] + ((line[0]).split(' '))[5] # Смета согласована
+                estimate_reserved = ((line[0]).split(' '))[0] + ((line[0]).split(' '))[1] + ((line[0]).split(' '))[4] + ((line[0]).split(' '))[5]  # Резерв получен
+
                 # Сортирует задачи
                 if title[0] == 'Зарегистрирована' and title[1] == 'новая' and title[2] == 'задача':
 
@@ -106,14 +111,24 @@ def mail():
                         # Создает формат сообщения инцидента
                         inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
                         send_max_mess.send_mess(inced, params)
+
                 #Сортирует сметы
-                elif title[0] == 'Смета':
-                    task = [line[0], line[1], line[2], line[3], line[5], line[6]]
+                elif estimate_canceled == 'Отмененасмета':
+                    task = title
                     send_max_mess.send_mess(task,group_13)
 
-                elif title[0] == 'По' and title[1] == 'смете':
-                    task = [line[0], line[1], line[2], line[3], line[5], line[6]]
+                elif estimate_returned == 'Возвращенанадоработку':
+                    task = title
                     send_max_mess.send_mess(task, group_13)
+
+                elif estimate_agreed == 'Сметасогласована.Необходимо':
+                    task = title
+                    send_max_mess.send_mess(task, group_13)
+
+                elif estimate_reserved == 'ПоСметесозданзаказ.Номер':
+                    task = title
+                    send_max_mess.send_mess(task, group_13)
+
             else:
                 data = time.strftime(format_date)
                 print(data,' Новых заявок нет' )
