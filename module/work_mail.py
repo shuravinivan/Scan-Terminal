@@ -121,9 +121,9 @@ def mail():
                     task = title
                     send_max_mess.send_mess(task, group_13)
 
-                elif estimate_agreed == 'Сметасогласована.Необходимо':
-                    task = title
-                    send_max_mess.send_mess(task, group_13)
+                # elif estimate_agreed == 'Сметасогласована.Необходимо':
+                #     task = title
+                #     send_max_mess.send_mess(task, group_13)
 
                 elif estimate_reserved == 'ПоСметесозданзаказ.Номер':
                     task = title
