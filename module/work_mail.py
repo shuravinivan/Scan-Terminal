@@ -135,7 +135,8 @@ def mail():
                     print('\n')
                     break
             else:
-                print('Новых писем нет')
+                data = time.strftime(format_date)
+                print(data, ' Новых писем нет')
                 break
     except:
         print(time.strftime(format_date))
