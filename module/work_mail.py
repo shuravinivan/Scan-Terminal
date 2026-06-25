@@ -129,11 +129,12 @@ def mail():
                     task = title
                     send_max_mess.send_mess(task, group_13)
 
-            else:
-                data = time.strftime(format_date)
-                print(data,' Новых заявок нет' )
-                print('\n')
-                break
+                else:
+                    data = time.strftime(format_date)
+                    print(data,' Новых заявок нет' )
+                    print('\n')
+                    break
+
     except:
         print(time.strftime(format_date))
         print('Ошибка модуля обработки почты', '\n')
