@@ -2,7 +2,7 @@ format_date = '%d.%m.%Y %H:%M'
 TOKEN_TEL = "7240204692:AAHiUSc0DdlcN2YEZsj-xbLgc9EqCpkMV1Q"
 mail_name = "help_alexstroy@mail.ru"
 mail_pass = "09X7BYAayMx9vH7Lqu2t"
-version = " вер.1.10.00 "
+version = " вер.1.10.01 "
 
 
 API = "https://platform-api.max.ru"
