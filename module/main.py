@@ -10,7 +10,7 @@ try:
 
         while True:
             work_mail.mail()
-            time.sleep(60)
+            time.sleep(600)
 except:
     print(time.strftime(format_date))
     print('Ошибка ведущего модуля')

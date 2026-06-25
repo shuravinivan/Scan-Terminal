@@ -21,7 +21,7 @@ def mail():
 
                 estimate_canceled = ((line[0]).split(' '))[0] + ((line[0]).split(' '))[1] # Смета отменена
                 estimate_returned = ((line[0]).split(' '))[0] + ((line[0]).split(' '))[1] + ((line[0]).split(' '))[2] # Смета на доработку
-                estimate_agreed = ((line[0]).split(' '))[0] + ((line[0]).split(' '))[5] # Смета согласована
+                # estimate_agreed = ((line[0]).split(' '))[0] + ((line[0]).split(' '))[5] # Смета согласована
                 estimate_reserved = ((line[0]).split(' '))[0] + ((line[0]).split(' '))[1] + ((line[0]).split(' '))[4] + ((line[0]).split(' '))[5]  # Резерв получен
 
                 # Сортирует задачи
@@ -134,7 +134,9 @@ def mail():
                     print(data,' Новых заявок нет' )
                     print('\n')
                     break
-
+            else:
+                print('Новых писем нет')
+                break
     except:
         print(time.strftime(format_date))
         print('Ошибка модуля обработки почты', '\n')
