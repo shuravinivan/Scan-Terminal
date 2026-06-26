@@ -148,9 +148,12 @@ def mail():
                         print('\n')
 
                 else:
-                    print('Нет писем')
+                    data = time.strftime(format_date)
+                    print(data, ' Нет писем')
+                    print('\n')
                     break
 
             except:
-                print(time.strftime(format_date))
-                print('Ошибка модуля обработки почты', '\n')
+                data = time.strftime(format_date)
+                print(data, ' Ошибка модуля обработки почты')
+                print('\n')
