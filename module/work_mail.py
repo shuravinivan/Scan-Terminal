@@ -22,6 +22,8 @@ def mail():
                     line = letter.split('\n')
 
                     type_tasks = ((line[0]).split(' '))[0] + ((line[0]).split(' '))[1]
+                    numb_task = ((line[0]).split(' '))[2]
+                    numb_inc = ((line[0]).split(' '))[7]
 
                     # Создана новая задача
                     if type_tasks == 'Зарегистрированановая':
@@ -132,19 +134,18 @@ def mail():
                     #Завершена задача
                     elif type_tasks == 'Завершеназадача':
                         data = time.strftime(format_date)
-                        print(data, ' Завершена задача')
+                        print(data, ' Завершена задача', numb_task)
                         print('\n')
 
                     #Зарегистрирован повторный инцидент
                     elif type_tasks == 'Зарегистрированаповторная':
                         data = time.strftime(format_date)
-                        print(data, ' Зарегистрирован повторный инцидент')
+                        print(data, ' Инцидент', numb_inc[:8], 'не прошел контроль')
                         print('\n')
 
                     else:
                         data = time.strftime(format_date)
                         print(data,' Письмо не идентифицировано' )
-                        print(type_tasks)
                         print('\n')
 
                 else:

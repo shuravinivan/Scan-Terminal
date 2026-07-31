@@ -2,7 +2,7 @@ format_date = '%d.%m.%Y %H:%M'
 TOKEN_TEL = "7240204692:AAHiUSc0DdlcN2YEZsj-xbLgc9EqCpkMV1Q"
 mail_name = "help_alexstroy@mail.ru"
 mail_pass = "09X7BYAayMx9vH7Lqu2t"
-version = " вер.1.10.04 "
+version = " вер.1.10.05 "
 
 
 API = "https://platform-api.max.ru"
@@ -44,7 +44,7 @@ group_10 = '-72297403189768'  # КМ и ХП (k247) - new_tech_3
 group_11 = '-72297781856776'  # ФУЛЛ без техника (k106) - full_tech_5, new_tech_4.txt
 group_12 = '-72297559165448'  # Вицин Е - kto_tech_6
 group_13 = '-72297624504840'  # Свободен_2 (k495)
-group_14 = '-72297706359304'  # Свободен_3 (k925)
+group_14 = '-72297706359304'  # Роднег С - full_tech_6
 group_15 = '-72298581395976'  # Канал для тестирования (k906)
 
 #Для тестирования работы
