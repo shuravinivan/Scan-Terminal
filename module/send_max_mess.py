@@ -11,7 +11,7 @@ try:
         data = time.strftime(format_date)
         message = str(' '.join(text))
         print(data)
-        print(message)
+        # print(message)
         from config import API
         from config import TOKEN_MAX
         from config import user_id

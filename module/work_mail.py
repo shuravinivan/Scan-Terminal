@@ -22,11 +22,12 @@ def mail():
                     line = letter.split('\n')
 
                     type_tasks = ((line[0]).split(' '))[0] + ((line[0]).split(' '))[1]
-                    numb_task = ((line[0]).split(' '))[2]
-                    numb_inc = ((line[0]).split(' '))[7]
 
                     # Создана новая задача
                     if type_tasks == 'Зарегистрированановая':
+
+                        numb_inc = ((line[0]).split(' '))[4]
+                        print('Зарегистрирована новая задача: ' + numb_inc)
 
                         # Создает переменные строк
                         numb_shop = ((line[3].split()[2]).replace(',', ''))
@@ -90,6 +91,9 @@ def mail():
                     # Создан новый инцидент
                     elif type_tasks == 'Зарегистрированинцидент,':
 
+                        numb_inc = ((line[0]).split(' '))[9]
+                        print('Зарегистрирован новый инцидент: ' + numb_inc)
+
                         param = line[7].split(',')
                         parameters = ((param[0]).split(':')[2]).strip()
 
@@ -113,39 +117,60 @@ def mail():
                             inced = [line[0], line[1], line[2], line[4], line[5], line[6], line[7], line[8], line[9], line[10]]
                             send_max_mess.send_mess(inced, params)
 
+                    # Решение инцидента не подтверждено
+                    elif type_tasks == 'Зарегистрированаповторная':
+                        data = time.strftime(format_date)
+                        numb_inc = ((line[0]).split(' '))[7]
+                        print('Не подтверждено решение инцидента: ' + numb_inc[:8])
+                        print(data)
+                        print('\n')
+
+                    #Завершена задача
+                    elif type_tasks == 'Завершеназадача':
+                        numb_task = ((line[0]).split(' '))[2]
+                        data = time.strftime(format_date)
+                        print('Подтверждено решение задачи: ' + numb_task)
+                        print(data)
+                        print('\n')
+
+                    #Завершен инцидент
+                    elif type_tasks == 'Задание№':
+                        numb_task = ((line[0]).split(' '))[3]
+                        data = time.strftime(format_date)
+                        print('Подтверждено решение инцидента: ' + numb_task[:8])
+                        print(data)
+                        print('\n')
+
                     #Смета отменена
                     elif type_tasks == 'Отмененасмета':
                         task = title
+                        inc_tasks = title[3]
+                        print('Смета на задачу: ' + inc_tasks[:8] + ' отменена')
                         send_max_mess.send_mess(task,group_13)
                         print('\n')
 
                     #Смета возвращена на доработку
                     elif type_tasks == 'Возвращенана':
                         task = title
+                        inc_res = title[5]
+                        print('Смета на задачу: ' + inc_res[:8] + ' возвращена на доработку')
                         send_max_mess.send_mess(task, group_13)
                         print('\n')
 
                     #По смете создан резерв
                     elif type_tasks == 'ПоСмете':
                         task = title
+                        inc_res = title[2]
+                        reserv = title[9]
+                        print('Для выполненной задачи: ' + inc_res[:8] + ' присвоен резерв: ' + reserv[:10])
                         send_max_mess.send_mess(task, group_13)
-                        print('\n')
-
-                    #Завершена задача
-                    elif type_tasks == 'Завершеназадача':
-                        data = time.strftime(format_date)
-                        print(data, ' Завершена задача', numb_task)
-                        print('\n')
-
-                    #Зарегистрирован повторный инцидент
-                    elif type_tasks == 'Зарегистрированаповторная':
-                        data = time.strftime(format_date)
-                        print(data, ' Инцидент', numb_inc[:8], 'не прошел контроль')
                         print('\n')
 
                     else:
                         data = time.strftime(format_date)
-                        print(data,' Письмо не идентифицировано' )
+                        print('Письмо не идентифицировано' )
+                        print(title)
+                        print(data)
                         print('\n')
 
                 else:
