@@ -7,7 +7,7 @@ import time
 from config import format_date, mail_name, mail_pass, params, no_class
 from config import group_1, group_2, group_3, group_4, group_5, group_6
 from config import group_7, group_8, group_9, group_10, group_11, group_12
-from config import group_13
+from config import group_13, group_14
 
 def mail():
 
@@ -77,7 +77,7 @@ def mail():
                         elif sort_direct.sort(task_inc, 'full'):
 
                             # Фильтрует задачу по технику ФУЛЛ
-                            sort_tech.tech(task, numb_shop, 5, 'full', group_2, group_4, group_5, group_9, group_11, 0, 0, 0, 0, 0)
+                            sort_tech.tech(task, numb_shop, 6, 'full', group_2, group_4, group_5, group_9, group_11, group_14, 0, 0, 0, 0)
 
                         # Фильтрует задачу по классу инцидента New_conc
                         elif sort_direct.sort(task_inc, 'new'):
