@@ -170,6 +170,8 @@ def mail():
                         data = time.strftime(format_date)
                         print('Письмо не идентифицировано' )
                         print(title)
+                        print(line)
+                        print(letter)
                         print(data)
                         print('\n')
 
